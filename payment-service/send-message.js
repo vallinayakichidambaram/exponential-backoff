@@ -1,7 +1,7 @@
 const { configDotenv } = require("dotenv");
 configDotenv()
 async function sendDataToUserService() {
-    console.log("we are here!");
+    console.log("Payment Processed!");
     console.log(process.env.WEBHOOK_URL)
     headers= {
         "content-type": "application/json"
