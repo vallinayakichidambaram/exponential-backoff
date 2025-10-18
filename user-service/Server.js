@@ -6,10 +6,10 @@ app.get('/', (req, res) => {
   res.send('User Service')
 })
 
-app.post('/user-details', (req,res) => {
-    console.log("we are in user service")
+app.post('/webhook', (req,res) => {
     const userData= req.body
     console.log(userData);
+    if(userData) console.log("webhook received!")
     res.send({
         status: 200
     })
