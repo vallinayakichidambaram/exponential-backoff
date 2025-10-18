@@ -1,7 +1,8 @@
 const { configDotenv } = require("dotenv");
 
 let maxRetries = 5;
-let jitter = 1000;
+let base = 1000;
+let jitter = 85;
 configDotenv();
 function retryWithExponentialBackoff() {
     let retry = 1
@@ -37,7 +38,7 @@ function retryWithExponentialBackoff() {
                 console.log("Max retries reached!");
             } else {
 
-                const delayMs = (2 ** retry) * jitter
+                const delayMs = ((2 ** retry) * base ) + jitter
                 console.log(`Retry attempt ${retry} after ${delayMs}ms`)
                 await new Promise((resolve) => setTimeout(resolve, delayMs))
                 retry++;
